@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>StudyLock</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main>
+    <header><div class="mark">S</div><div><h1>StudyLock</h1><p>Earn your evening anime time.</p></div></header>
+    <section class="status-card">
+      <div class="status-line"><span id="statusDot" class="dot"></span><strong id="statusTitle">Checking status…</strong></div>
+      <p id="statusText">Crunchyroll access is managed by your study report.</p>
+      <div id="accessControls" class="hidden">
+        <button id="pause" class="secondary">Pause access</button>
+        <button id="resume" class="secondary hidden">Resume access</button>
+      </div>
+    </section>
+    <section class="settings">
+      <h2>Daily requirements</h2>
+      <label for="minimum">Minimum study time</label>
+      <input id="minimum" type="number" min="1" max="24" step="0.5" aria-label="Minimum study hours">
+      <span class="hint">hours for the full 30 minute reward</span>
+      <div class="times">
+        <label>Reports open<input id="opens" type="time"></label>
+        <label>Reports close<input id="closes" type="time"></label>
+      </div>
+      <button id="saveSettings" class="secondary">Save settings</button>
+      <p id="settingsMessage" class="message" aria-live="polite"></p>
+    </section>
+    <section id="reportSection" class="report">
+      <label for="duration">Study time today</label>
+      <input id="duration" type="text" inputmode="numeric" placeholder="HH:MM or HH:MM:SS" autocomplete="off">
+      <p class="hint">Example: 01:30 or 02:45:30</p>
+      <button id="submit">Submit study report</button>
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+    <section id="waitSection" class="wait hidden"><strong id="waitTitle">Reporting is closed.</strong><p id="waitText"></p></section>
+    <footer>One report per day. Your reward is calculated from your minimum.</footer>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
